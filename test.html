@@ -6,18 +6,15 @@
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
   </head>
   <body>
-    <pre id="readout">Waiting for data...</pre>
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
-<iframe id="image" src="" width="400" height="400"></iframe>
-<div id="title"></div>
+<iframe id="image" src="" frameborder="0" allowfullscreen></iframe>
 <script>
-grist.ready({columns: ['Link', 'Title'], requiredAccess: 'read table'});
+grist.ready({columns: ['Link'], requiredAccess: 'read table'});
 grist.onRecord(function (record, mappings) {
   const mapped = grist.mapColumnNames(record);
   // First check if all columns were mapped.
   if (mapped) {
     document.getElementById('image').src = mapped.Link;
-    document.getElementById('title').innerHTML = mapped.Title;
     console.log(`Using ${mappings.Link} and ${mappings.Title} columns`);
   } else {
     // Helper returned a null value. It means that not all
