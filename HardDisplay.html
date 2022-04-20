@@ -15,7 +15,7 @@ grist.onRecord(function (record, mappings) {
   // First check if all columns were mapped.
   if (mapped) {
     document.getElementById('image').src = mapped.Link;
-    console.log(`Using ${mappings.Link} and ${mappings.Title} columns`);
+    console.log(`Using ${mappings.Link} column`);
   } else {
     // Helper returned a null value. It means that not all
     // required columns were mapped.
