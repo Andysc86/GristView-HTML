@@ -11,7 +11,7 @@
       grist.ready({columns: ['Link'], requiredAccess: 'read table'});
       grist.onRecord(function(record) {
         const mapped = grist.mapColumnNames(record);
-        document.getElementById('readout').src = mapped.Link;
+        document.getElementById('readout').innerHTML = mapped.Link;
       });
     </script>
   </body>
