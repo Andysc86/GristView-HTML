@@ -8,7 +8,7 @@
   <body>
     <pre id="readout">Waiting for data...</pre>
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
-<img id="image" src=""/>
+<iframe id="image" src="" width="400" height="400"></iframe>
 <div id="title"></div>
 <script>
 grist.ready({columns: ['Link', 'Title'], requiredAccess: 'read table'});
@@ -16,7 +16,7 @@ grist.onRecord(function (record, mappings) {
   const mapped = grist.mapColumnNames(record);
   // First check if all columns were mapped.
   if (mapped) {
-    document.getElementById('image').innerHTML = mapped.Link;
+    document.getElementById('image').src = mapped.Link;
     document.getElementById('title').innerText = mapped.Title;
     console.log(`Using ${mappings.Link} and ${mappings.Title} columns`);
   } else {
